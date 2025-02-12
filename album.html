@@ -1,0 +1,194 @@
+<!-- File: album.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Kenangan</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFEFD5;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .photo-gallery {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 400px;
+            gap: 10px;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #CD853F #FFEFD5;
+        }
+        .photo-gallery::-webkit-scrollbar {
+            width: 8px;
+        }
+        .photo-gallery::-webkit-scrollbar-thumb {
+            background: #CD853F;
+            border-radius: 10px;
+        }
+        .photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .photo img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid #CD853F;
+        }
+        .photo p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 15px 10px;
+            font-size: 15px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background: #A0522D;
+        }
+        #play-music-btn {
+            margin-top: 5px; /* Lebih dekat dengan judul */
+            padding: 8px 12px;
+            background: #CD853F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" src="lagualbum.mp3"></audio>
+
+    <div class="container">
+        <h2>📸 Special Photos 📸</h2>
+
+        <!-- Tombol lebih dekat ke judul -->
+        <button id="play-music-btn">Klik ini biar pake musik!!</button>
+
+        <p>Kenangan indah yang pernah kita lalui bersama!</p>
+
+        <div class="photo-gallery">
+            <div class="photo">
+                <img src="fotoiscil1.jpg" alt="Foto 1">
+                <p>Ternyata dari kecil kamu udah jadi bocah gemes yang selalu bikin orang di sekitarmu bahagia! 🥹✨ Liat foto ini, aku kebayang gimana ibu kamu dulu pasti bangga banget punya anak kayak kamu—ceria, baik hati, dan penuh kasih sayang. Dan sekarang, aku yang beruntung bisa kenal dan ada di samping kamu. Semoga di usia baru ini, kebahagiaan yang dulu kamu kasih ke orang-orang sekitar terus balik ke kamu berkali-kali lipat. Tetap jadi Isfa'Lana yang aku kenal dan aku sayang, ya! 💙</p>
+            </div>
+            <div class="photo">
+                <img src="fotoiscil2.jpg" alt="Foto 2">
+                <p> Lihat foto ini, aku bisa ngerasain betapa ayah kamu bangga punya anak kayak kamu—tangguh, penuh semangat, dan selalu berusaha jadi yang terbaik. Pasti banyak hal yang udah kamu pelajari dari beliau, dan sekarang aku lihat sendiri gimana kamu tumbuh jadi seseorang yang kuat, penyayang, dan selalu punya hati besar. </p>
+            </div>
+            <div class="photo">
+                <img src="fotopertama.jpg" alt="Foto 3">
+                <p>Ini foto pertama kitaa, Ga expect ak bisa suka sama kamu xixixi</p>
+            </div>
+            <div class="photo">
+                <img src="fotosma.jpg" alt="Foto 4">
+                <p>Ini foto so so an jadi SMA wkwkw gemes tapii!!</p>
+            </div>
+            <div class="photo">
+                <img src="fotoliburan.jpg" alt="Foto 5">
+                <p>Firts time kita jalan jalan jauh, ke bandungg</p>
+            </div>
+            <div class="photo">
+                <img src="fotobajang.jpg" alt="Foto 6">
+                <p>akuu suka banget benerin rambut/pilihin model rambut kamu!</p>
+            </div>
+            <div class="photo">
+                <img src="fotogelap.jpg" alt="Foto 7">
+            </div>
+            <div class="photo">
+                <img src="fotobajang2.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotobajang3.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotoliburan.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotojati.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotobdg.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotobajang4.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotokonser.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotosweet.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotoselfie2.jpg" alt="Foto 8">
+            </div>
+
+            <div class="photo">
+                <img src="fotobayangan.jpg" alt="Foto 8">
+            </div>
+            <div class="photo">
+                <img src="fotoselfie.jpg" alt="Foto 8">
+            </div>
+            <p>udahh yaa segitu ajaa, semoga kamu selalu inget aku disetiap sela detik mu!!!</p>
+        </div>
+        <br>
+        <a href="wish.html" class="button">Next Terakhir!!</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var audio = document.getElementById("bg-music");
+            var playButton = document.getElementById("play-music-btn");
+
+            // Coba autoplay
+            var playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Musik diputar otomatis.");
+                }).catch(error => {
+                    console.log("Autoplay diblokir, tombol tetap tersedia.");
+                });
+            }
+
+            // Putar musik saat tombol diklik
+            playButton.addEventListener("click", function () {
+                audio.play();
+                playButton.style.display = "none"; // Sembunyikan tombol setelah musik diputar
+            });
+        });
+    </script>
+</body>
+</html>

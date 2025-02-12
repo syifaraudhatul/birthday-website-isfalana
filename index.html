@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Isfa'Lana!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #F5DEB3;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .lock-screen, .letter-screen {
+            background-color: #DEB887;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            position: relative;
+        }
+        .photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+        }
+        .lock-panel {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+        }
+        button {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background: #CD853F;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #DEB887;
+        }
+        .hidden {
+            display: none;
+        }
+        .letter {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 400px;
+            cursor: pointer;
+        }
+        .letter p {
+            display: none;
+            font-size: 16px;
+            color: #333;
+        }
+        .letter.open p {
+            display: block;
+        }
+        .button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background: #A0522D;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" src="laguawal.mp3"></audio>
+    <div class="container">
+        <div class="lock-screen" id="lock-screen">
+            <img src="fotoispaa.jpg" alt="Foto masa kecil" class="photo">
+            <div class="message">Happy Birthday Isfa'Lana! <br>Buka kode nyaa yaa <br>sesuai tanggal lahir kamuu!!</div>
+            <div class="lock-panel">
+                <input type="password" id="passcode" placeholder="Masukkan Kode" maxlength="8">
+                <div class="keypad">
+                    <button onclick="enterDigit(1)">1</button>
+                    <button onclick="enterDigit(2)">2</button>
+                    <button onclick="enterDigit(3)">3</button>
+                    <button onclick="enterDigit(4)">4</button>
+                    <button onclick="enterDigit(5)">5</button>
+                    <button onclick="enterDigit(6)">6</button>
+                    <button onclick="enterDigit(7)">7</button>
+                    <button onclick="enterDigit(8)">8</button>
+                    <button onclick="enterDigit(9)">9</button>
+                    <button onclick="clearPasscode()">C</button>
+                    <button onclick="enterDigit(0)">0</button>
+                    <button onclick="checkPasscode()">OK</button>
+                </div>
+            </div>
+        </div>
+        <div class="letter-screen hidden" id="letter-screen">
+            <div class="letter" onclick="openLetter()">
+                <h3>📜 Aku punya surat, baca yaa💗</h3>
+                <p>Happy Birthday Isfa'Lana!,<br>Hari ini hari spesial banget karena jadi momen di mana dunia dapet orang sekeren, sebaik, dan seberarti kamu buat aku. Akuu bersyukur banget bisa kenal kamu, bisa ngejalanin semua hal seru, nyebelin, konyol, dan indah bareng kamu. Kamu itu ibarat kombinasi paling pas antara seseorang yang bisa bikin aku ketawa sampe lupa waktu, tapi juga tempat ternyaman buat cerita apa aja. Semogaa di umur baru ini, semua impian dan harapan kamu makin dekat dan kesampean yaaa, jalannya dipermudah, dan kamu selalu dikelilingi kebahagiaan. Akuu bakal terus ada di sini, nemenin kamu, support kamu, dan pastinya sayang kamu lebih dari kemarin, tapi masih kalah sama besok. Happy Birthdayy, my favorite person! 💗🎂</p>
+            </div>
+            <br>
+            <a href="album.html" class="button" onclick="saveMusicTime()">Lanjut yuuu</a>
+        </div>
+    </div>
+    <script>
+        let audio = document.getElementById("bg-music");
+        function enterDigit(digit) {
+            let passcodeInput = document.getElementById("passcode");
+            if (passcodeInput.value.length < 8) {
+                passcodeInput.value += digit;
+            }
+            if (digit === 1 && !audio.playing) {
+                audio.play();
+                localStorage.setItem("musicPlaying", "true");
+            }
+        }
+        function clearPasscode() {
+            document.getElementById("passcode").value = "";
+        }
+        function checkPasscode() {
+            if (document.getElementById("passcode").value === "13022004") {
+                localStorage.setItem("musicTime", audio.currentTime);
+                document.getElementById("lock-screen").classList.add("hidden");
+                document.getElementById("letter-screen").classList.remove("hidden");
+            } else {
+                alert("Kode salah, coba lagi!");
+            }
+        }
+        function openLetter() {
+            document.querySelector(".letter").classList.toggle("open");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            let savedTime = localStorage.getItem("musicTime");
+            let isPlaying = localStorage.getItem("musicPlaying");
+            if (isPlaying === "true" && savedTime) {
+                audio.currentTime = parseFloat(savedTime);
+                audio.play();
+            }
+        });
+        function saveMusicTime() {
+            localStorage.setItem("musicTime", audio.currentTime);
+            localStorage.setItem("musicPlaying", !audio.paused);
+        }
+    </script>
+</body>
+</html>

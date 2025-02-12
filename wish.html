@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Me For U</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FDF5E6;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+        .button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background: #A0522D;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" src="laguwish.mp3" loop></audio>
+    <div class="container">
+        <h2>Wish Me For U isfalana💗</h2>
+        <p>Semoga kamu panjang umur ya is, doa baik aku selalu menyertaimu, semoga kita bisa jadi orang sukses, bisa banggain orang tua dan kita hidup bersama hehehehe. aku pengen tau doa dan harapan kamu, doa dan harapan ini bisa membuat hari ulang tahunmu lebih spesial!</p>
+        <textarea id="wishMessage" placeholder="Tulis doa dan harapanmu di sini..." onfocus="playMusic()"></textarea>
+        <button class="button" onclick="sendToWhatsApp()">Kirim📩</button>
+    </div>
+
+    <script>
+        function playMusic() {
+            let audio = document.getElementById("bgMusic");
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.log("Autoplay diblokir, pengguna harus berinteraksi terlebih dahulu.");
+                });
+            }
+        }
+
+        function sendToWhatsApp() {
+            let message = document.getElementById("wishMessage").value;
+            if (message.trim() === "") {
+                alert("Tolong isi doa dan harapan dulu ya!");
+                return;
+            }
+            let phone = "085523697652";
+            let whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.location.href = whatsappURL;
+        }
+    </script>
+</body>
+</html>
